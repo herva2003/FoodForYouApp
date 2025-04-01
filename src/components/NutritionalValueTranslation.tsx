@@ -1,0 +1,32 @@
+const nutritionalValueTranslation: { [key: string]: string } = {
+    calcium_mg: "Cálcio mg",
+    saturated_fats_g: "Gorduras Saturadas",
+    carb_g: "Carboidratos g",
+    copper_mcg: "Cobre mcg",
+    energy_kcal: "Energia kcal",
+    fat_g: "Gordura g",
+    fiber_g: "Fibra g",
+    folate_mcg: "Folato mcg",
+    iron_mg: "Ferro mg",
+    magnesium_mg: "Magnésio mg",
+    manganese_mg: "Manganês mg",
+    niacin_mg: "Niacina mg",
+    phosphorus_mg: "Fósforo mg",
+    potassium_mg: "Potássio mg",
+    protein_g: "Proteína g",
+    riboflavin_mg: "Riboflavina mg",
+    selenium_mcg: "Selênio mcg",
+    sodium_mg: "Sódio mg",
+    sugar_g: "Açúcar g",
+    thiamin_mg: "Tiamina mg",
+    vitA_mcg: "Vitamina A mcg",
+    vitB12_mcg: "Vitamina B12 mcg",
+    vitB6_mg: "Vitamina B6 mg",
+    vitC_mg: "Vitamina C mg",
+    vitD2_mcg: "Vitamina D2 mcg",
+    vitE_mg: "Vitamina E mg",
+    zinc_mg: "Zinco mg",
+  };
+  
+  export default nutritionalValueTranslation;
+  
