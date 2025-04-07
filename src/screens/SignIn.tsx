@@ -36,7 +36,6 @@ const SignIn: React.FC = () => {
 
       if (accessToken && refreshToken) {
         handleSetToken(accessToken, refreshToken);
-        navigation.navigate('Dashboard');
       } else {
         Alert.alert('Erro!', 'Credenciais inválidas. Tente novamente.');
       }

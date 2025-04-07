@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, Button } from 'react-native';
 import Modal from 'react-native-modal';
 import api from '../services/api';
+import {useAuth} from '../context/AuthContext';
 
 const availableColumns = [
   'energy_kcal',
@@ -64,26 +65,14 @@ const columnLabels: { [key: string]: string } = {
 };
 
 const Dashboard: React.FC = () => {
-  const [userData, setUserData] = useState<any | null>(null);
-  const [startDate, setStartDate] = useState<string | null>(null);
-  const [endDate, setEndDate] = useState<string | null>(null);
+  const {userData} = useAuth();
   const [nutritionalData, setNutritionalData] = useState<any[]>([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
   
   useEffect(() => {
-    fetchData();
     fetchNutritionalData();
   }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await api.get('/api/v1/user/me');
-      setUserData(response.data);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
 
   const fetchNutritionalData = async () => {
     try {
@@ -113,12 +102,10 @@ const Dashboard: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Dashboard</Text>
-      
+
       {/* Informações do Paciente */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Informações do Paciente</Text>
-        <Text>Nome: {userData?.fullName ?? 'N/A'}</Text>
+        <Text style={styles.cardTitle}>{userData?.fullName ?? 'N/A'}</Text>
         <Text>Altura: {userData?.height ?? 'N/A'} cm</Text>
         <Text>Peso: {userData?.weight ?? 'N/A'} kg</Text>
         <Text>Dietas: {userData?.diets ?? 'N/A'}</Text>
